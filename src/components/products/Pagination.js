@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 
-import {sendQuery} from '../publics/actions/products'
+import {sendQuery} from '../../publics/actions/Products'
 import { connect } from 'react-redux';
 class Pagination extends Component {
 	state = {
@@ -14,7 +14,7 @@ class Pagination extends Component {
 
 	handlerChange = async (e) => {
 		await this.setState({ [e.target.name]: e.target.value});
-		
+
 		this.props.callBack(this.state)
 		// setTimeout(() => this.props.callBack(this.state), 250);
 	}

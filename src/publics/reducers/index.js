@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
 
-import user from './users'
-import product from './products'
-import category from './categories'
+import user from './Users'
+import product from './Products'
+import category from './Categories'
 
 const rootReducer = combineReducers({
     category,

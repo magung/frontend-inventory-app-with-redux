@@ -9,7 +9,7 @@ class ProductCard extends React.Component{
       redirectToDetails:false
     }
     this.redirectToDetails = this.redirectToDetails.bind(this)
-  } 
+  }
   redirectToDetails = () => {
     this.setState({redirectToDetails:true})
   }
@@ -18,9 +18,10 @@ class ProductCard extends React.Component{
     return <Redirect to={`/home/products/${this.props.product.id}`}/>
       const {name, image, category, quantity} = this.props.product
       return(
-        <div className='border col-3 border col-3 mx-4 mt-5 mb-3 p-0' onClick={() => this.redirectToDetails()}>
+
+        <div className='border col-3 border col-3 mx-4 mt-5 mb-3 p-0 card' onClick={() => this.redirectToDetails()}>
           <div className="text-center">
-            <img src={image} onError={() => {this.props.product.image = 'https://icon-library.net/images/inventory-icon/inventory-icon-10.jpg'; this.forceUpdate()}}  className="img-fluid d-inline-block img-h" />  
+            <img src={image} onError={() => {this.props.product.image = 'https://icon-library.net/images/inventory-icon/inventory-icon-10.jpg'; this.forceUpdate()}}  className="img-fluid d-inline-block img-h" />
           </div>
           <div className="p-3">
             <h5>{name}</h5>
@@ -28,6 +29,7 @@ class ProductCard extends React.Component{
               Quantity: {quantity}</p>
           </div>
         </div>
+        
         )
   }
 }

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import store from '../publics/store'
+import store from '../../publics/Store'
 import { Card,Modal, Button , Alert} from 'react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
 import {connect} from 'react-redux'
 import Axios from 'axios';
-import ModalEditProduct from './ModalEditProduct'
-import { getProductById, deleteProduct, addQty, reduceQty }  from '../publics/actions/products'
+import { getProductById, deleteProduct, addQty, reduceQty }  from '../../publics/actions/Products'
 
 class DetailProduct extends Component {
   constructor(props){
@@ -64,7 +63,7 @@ class DetailProduct extends Component {
           modalTitle: "Success",
           modalMessage: 'Succes add Product',
         })
-      }) 
+      })
       .catch(() => {
         this.setState({
           showModalQty: true,
@@ -73,7 +72,7 @@ class DetailProduct extends Component {
           showModalAdd: false
         })
       })
-      
+
         this.props.product.products.quantity += 1;
         this.setState({quantity:  this.props.product.products.quantity})
     }
@@ -87,7 +86,7 @@ class DetailProduct extends Component {
           modalTitle: "Success",
           modalMessage: 'Succes add Product',
         })
-      }) 
+      })
       .catch(() => {
         this.setState({
           showModalQty: true,
@@ -96,7 +95,7 @@ class DetailProduct extends Component {
           showModalReduce: false
         })
       })
-      
+
         this.props.product.products.quantity -= 1;
         this.setState({quantity:  this.props.product.products.quantity})
     }
@@ -111,7 +110,7 @@ class DetailProduct extends Component {
             modalMessage: 'Succes deleting Product',
             deleted: true
           })
-        }) 
+        })
         .catch(() => {
           this.setState({
             showModal: true,
@@ -145,7 +144,7 @@ class DetailProduct extends Component {
      return <Redirect push to={`/home/products/`+ id}/>
      // this.props.history.push(`/home/products/`+ id)
     }
- 
+
     render() {
         const {deleted, loading} =this.state
         if(deleted === true){
@@ -154,18 +153,19 @@ class DetailProduct extends Component {
         const {id_product, name, description, image, category, quantity} = this.props.product.products;
         if(loading === true){
         return (<p>Loading .... </p>)}
-           
+
         return(
                 <React.Fragment>
-                <Card style={{ width: '50%', marginTop:'50px'}}>
+                <div className='container' style={{ marginTop:'55px'}}>
+                <Card style={{ width: '50%', border:'0'}}>
                     <Card.Body>
                     <div className='col-9  p-0'>
                     <Card.Img variant="top" src={image} onError={() => {this.props.product.products.image = 'https://icon-library.net/images/inventory-icon/inventory-icon-10.jpg'; this.forceUpdate()}}/>
-                    
+
                     </div>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '50%'}}>
+                <Card style={{ width: '50%',border:'0'}}>
                     <Card.Body>
                     <Card.Title>{name}</Card.Title>
                         <Card.Text>{description}</Card.Text>
@@ -173,13 +173,12 @@ class DetailProduct extends Component {
                         <Card.Text>{category}</Card.Text>
                     </Card.Body>
                     <Card.Body>
-                    {/* <ModalEditProduct history={this.props.history} productId={id_product} productData={this.props.product.products}/><a>&nbsp;</a> */}
-                    <Link to={`/home/products/edit/` + id_product}><Button variant="success">Edit</Button></Link>
-                    <Button variant="primary" onClick={this.toAdd}>add</Button>
-                    <Button variant="warning" onClick={this.toReduce}>reduce</Button>
-                    <Button variant="danger" onClick={this.toDelete} >delete</Button>
+                    <Link to={`/home/products/edit/` + id_product}><Button variant="success" style={{margin: '2px'}}>Edit</Button></Link>
+                    <Button variant="primary" onClick={this.toAdd} style={{margin: '2px'}}>add</Button>
+                    <Button variant="warning" onClick={this.toReduce} style={{margin: '2px'}}>reduce</Button>
+                    <Button variant="danger" onClick={this.toDelete} style={{margin: '2px'}}>delete</Button><br/>
                     <Link to='/'>Back Home</Link>
-                    
+
                     </Card.Body>
                 </Card>
 
@@ -261,9 +260,10 @@ class DetailProduct extends Component {
                     </Button>
                   </Modal.Footer>
                 </Modal>
+                </div>
               </React.Fragment>
               )
-          
+
     }
 }
 const mapStateToProps = state => {

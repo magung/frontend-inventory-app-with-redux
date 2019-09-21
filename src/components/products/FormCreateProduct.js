@@ -2,8 +2,8 @@ import React,{Fragment} from 'react'
 import {Row, Col, Form, Button, Modal} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
-import {addProduct} from '../publics/actions/products'
-import {getCategories} from '../publics/actions/categories'
+import {addProduct} from '../../publics/actions/Products'
+import {getCategories} from '../../publics/actions/Categories'
 
 class FormCreateProduct extends React.Component{
     constructor(props){
@@ -15,7 +15,7 @@ class FormCreateProduct extends React.Component{
                 description:'',
                 image:'',
                 category:'',
-                quantity:''  
+                quantity:''
             },
             showModal:false,
             modalTitle:"",
@@ -48,12 +48,18 @@ class FormCreateProduct extends React.Component{
     handleSubmit = async (event) => {
         event.preventDefault();
         await this.props.dispatch(addProduct(this.state.formData))
-        this.setState({
+        .then(()=>{this.setState({
             showModal: true,
             modalTitle:"Success",
             modalMessage:"Product successfully added!",
             redirectOnCloseModal: true
-        })
+        })})
+        .catch(()=>{
+          this.setState({
+          showModal: true,
+          modalTitle:"Failed",
+          modalMessage:this.props.product.errMessage,
+        })})
     }
 
     componentDidMount = async () => {
@@ -111,7 +117,7 @@ class FormCreateProduct extends React.Component{
                                 {
                                     categories.lenght !== 0 ? categories.map((category)=>{
                                     return <option value={category.id} key={category.id}> {category.category} </option>
-                                    }) : <option>Loading ... </option> 
+                                    }) : <option>Loading ... </option>
                                 }
                             </Form.Control>
                         </Col>
@@ -144,5 +150,5 @@ const mapStateToProps = state => {
       category: state.category
     }
   }
-  
+
   export default connect(mapStateToProps)(FormCreateProduct)

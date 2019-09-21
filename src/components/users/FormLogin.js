@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { Form, Button, Modal, Container } from 'react-bootstrap'
-import {login} from '../publics/actions/users'
+import {login} from '../../publics/actions/Users'
 
 class FormLogin extends React.Component {
     constructor(props){
@@ -15,7 +15,7 @@ class FormLogin extends React.Component {
           showModal:false,
           modalTitle:'',
           modalMessage:''
-        } 
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -34,7 +34,7 @@ class FormLogin extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const data = {
-          email: this.state.email, 
+          email: this.state.email,
           password: this.state.password
       }
       this.props.dispatch(login(data))
@@ -53,7 +53,7 @@ class FormLogin extends React.Component {
         })
       })
     }
-    
+
 
     render() {
         if(window.localStorage.getItem("token")) return <Redirect to="/"/>
@@ -61,7 +61,7 @@ class FormLogin extends React.Component {
           <Container>
             <div className='background' style={{height : '800px'}}>
               <div className='row' style={{margin : '55px'}}>
-                
+
                 <div className='col-6' style={{backgroundColor  : 'hsla(218, 100%, 50%, 0.5)', padding:'20px' }}>
                   <div style={{textAlign : 'center'}}>
                     <h2 className='colorWhite'>
@@ -72,14 +72,14 @@ class FormLogin extends React.Component {
                   <Form  style={this.state.style} onSubmit={this.handleSubmit}>
                     <Form.Group controlId='formBasicEmail'>
                       <Form.Text className='colorWhite'>
-                        Email : 
+                        Email :
                       </Form.Text>
                       <Form.Control type="email" name="email" placeholder="Enter email"  onChange={this.handleChange} required/>
-                      
+
                     </Form.Group>
                     <Form.Group controlId='formBasicPassword'>
                       <Form.Text className='colorWhite'>
-                        Password : 
+                        Password :
                       </Form.Text>
                       <Form.Control type="password" name="password" placeholder="Enter password"  onChange={this.handleChange} required/>
                     </Form.Group>

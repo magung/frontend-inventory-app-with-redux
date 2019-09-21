@@ -2,18 +2,18 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import './App.css'
 
-import Home from './pages/home'
+import Home from './pages/Home'
 import Auth from './pages/Auth'
 
 const App = () => {
   return(
-    <div className="App">
+    <>
       <Router>
-        <Route 
+        <Route
           exact={true}
           path={'/'}
           render={() => {
-            return window.localStorage.getItem("token") !== null ? 
+            return window.localStorage.getItem("token") !== null ?
             <Redirect to="./home"/>
             :
             <Redirect to="./login"/>;
@@ -38,7 +38,7 @@ const App = () => {
           }}
         />
       </Router>
-    </div>
+    </>
   )
 }
 

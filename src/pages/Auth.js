@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import FormLogin from '../components/FormLogin'
-import FormRegister from '../components/FormRegister'
+import FormLogin from '../components/users/FormLogin'
+import FormRegister from '../components/users/FormRegister'
 
 class Auth extends Component {
     constructor(props){
@@ -13,14 +13,14 @@ class Auth extends Component {
         if(this.isLoggedIn())
           props.history.push('/')
       }
-    
+
       isLoggedIn(){
         return window.localStorage.getItem('token')
       }
     render() {
         return(
             <div className='App'>
-                <Route 
+                <Route
                     path={'/login'}
                     render={() => {
                       return (

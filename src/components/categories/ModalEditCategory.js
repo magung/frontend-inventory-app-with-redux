@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 import {Modal, Button} from 'react-bootstrap'
-import FormCreateProduct from './FormCreateProduct'
+import FormEditCategory from './FormEditCategory'
 
-class ModalCreateProduct extends React.Component{
+class ModalCreateCategory extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -11,12 +11,12 @@ class ModalCreateProduct extends React.Component{
       }
       render(){
         return(
-          <Fragment>
-            <Button 
-              variant="ligth" 
+          <>
+            <Button
+              variant="primary"
               onClick={() => {this.setState({showModal:true})}}
-              style={{width:'100%'}}>
-              Add Products
+              >
+              Edit
             </Button>
             <Modal
               show={this.state.showModal}
@@ -27,16 +27,21 @@ class ModalCreateProduct extends React.Component{
             >
               <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                  Add Product
+                  Edit Category
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <FormCreateProduct closeModal={()=>{this.setState({showModal:false})}} history={this.props.history}/>
+                <FormEditCategory
+                  closeModal={()=>{this.setState({showModal:false})}}
+                  history={this.props.history}
+                  categoryId={this.props.categoryId}
+                  categoryData={this.props.categoryData}
+                />
               </Modal.Body>
             </Modal>
-          </Fragment>
+          </>
         )
       }
 }
 
-export default ModalCreateProduct
+export default ModalCreateCategory

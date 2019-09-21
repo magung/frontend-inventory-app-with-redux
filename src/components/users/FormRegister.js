@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Form, Button, Modal } from 'react-bootstrap'
 
-import {register} from '../publics/actions/users'
+import {register} from '../../publics/actions/Users'
 
 class FormRegister extends Component {
     constructor (props) {
         super(props)
-    
+
         this.state = {
           style: props.style,
           formData: {
@@ -59,9 +59,9 @@ class FormRegister extends Component {
         return(
             <div className='container background' style={{height : '800px'}}>
             <div className='row' style={{margin : '50px'}}>
-              
+
               <div className='col-6' style={{backgroundColor  : 'hsla(218, 100%, 50%, 0.5)', padding: '20px'}}>
-                <div style={{textAlign : 'center'}}>                  
+                <div style={{textAlign : 'center'}}>
                   <h2 className='colorWhite'>
                     Signup
                   </h2>
@@ -69,28 +69,28 @@ class FormRegister extends Component {
                 <Form style={this.state.style} onSubmit={this.handleSubmit}>
                   <Form.Group>
                     <Form.Text className='colorWhite'>
-                      Name : 
+                      Name :
                     </Form.Text>
                     <Form.Control type="text" name="name" placeholder="Enter name" onChange={this.handleChange} required/>
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Text className='colorWhite'>
-                      Username : 
+                      Username :
                     </Form.Text>
                     <Form.Control type="text" name="username" placeholder="Enter username" onChange={this.handleChange} required/>
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Text className='colorWhite'>
-                      Email : 
+                      Email :
                     </Form.Text>
                     <Form.Control type="email" name="email" placeholder="Enter email" onChange={this.handleChange} required/>
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Text className='colorWhite'>
-                      Password : 
+                      Password :
                     </Form.Text>
                     <Form.Control type="password" name="password" placeholder="Enter password" onChange={this.handleChange} required/>
                   </Form.Group>
@@ -125,5 +125,5 @@ const mapStateToProps = state => {
       user: state.user
     }
   }
-  
-  export default connect(mapStateToProps)(FormRegister)
+
+export default connect(mapStateToProps)(FormRegister)

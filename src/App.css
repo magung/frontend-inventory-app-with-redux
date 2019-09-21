@@ -53,3 +53,7 @@
 .colorWhite{
   color: white
 }
+
+.card{
+  float:left;
+}

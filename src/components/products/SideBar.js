@@ -3,8 +3,8 @@ import React from 'react'
 import {Container, Row, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ModalCreateProduct from './ModalCreateProduct'
-import {getProfile, logout} from '../publics/actions/users'
-
+import {getProfile, logout} from '../../publics/actions/Users'
+import ModalCreateCategory from '../categories/ModalCreateCategory'
 class SidebarUser extends React.Component{
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ class SidebarUser extends React.Component{
         }
         this.handleLogout = this.handleLogout.bind(this)
       }
-      handleLogout = async (event) => { 
+      handleLogout = async (event) => {
         window.localStorage.removeItem("token")
         await this.props.dispatch(logout())
         if(window.localStorage.getItem("token") === null)
@@ -41,11 +41,11 @@ class SidebarUser extends React.Component{
                 <img className='dashboard' src={this.props.user.userProfile.image||"https://icon-library.net/images/user-login-icon/user-login-icon-17.jpg"} alt="user" />
                 <h3 >Hello ..</h3>
                 <h3>{this.props.user.userProfile.username}</h3>
-                <h4>{this.props.user.userProfile.name}</h4>
-                <h4>{this.props.user.userProfile.email}</h4>
+
                 <Container className="sidebar-buttons ">
-                  <ModalCreateProduct history={this.state.history}/>
-                  <Row className="justify-content-md-center"><Button size="lg" variant="light" onClick={this.handleLogout} >Logout</Button></Row>
+                  <ModalCreateProduct history={this.state.history}/><br/>
+                  <ModalCreateCategory history={this.state.history}/><br/>
+                  <Row className="justify-content-md-center"><Button size="lg" variant="danger" onClick={this.handleLogout} >Logout</Button></Row>
                 </Container>
                 </div>
             )
@@ -62,6 +62,5 @@ const mapStateToProps = (state) => {
       user: state.user
     }
   }
-  
+
   export default connect(mapStateToProps)(SidebarUser)
-  

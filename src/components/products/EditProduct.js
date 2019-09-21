@@ -3,8 +3,8 @@ import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
-import {getProductById, updateProduct} from '../publics/actions/products'
-import {getCategories} from '../publics/actions/categories'
+import {getProductById, updateProduct} from '../../publics/actions/Products'
+import {getCategories} from '../../publics/actions/Categories'
 import { connect } from 'react-redux';
 class EditProduct extends Component {
     state = {
@@ -21,7 +21,7 @@ class EditProduct extends Component {
         await this.props.getCategories();
         await this.props.getProductById(id);
         this.setState(this.props.product.products);
-        
+
     }
 
     editData = e => {
@@ -74,7 +74,7 @@ class EditProduct extends Component {
                         <option>-- Select Category --</option>
                     {   categories.map(category =>{
                         if(category.id === this.state.id_category){
-                            return <option value={category.id}   key={category.id} >{category.category}</option>     
+                            return <option value={category.id}   key={category.id} selected>{category.category}</option>
                         }else{
                             return <option value={category.id}   key={category.id}>{category.category}</option>
                         }

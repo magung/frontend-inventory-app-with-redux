@@ -5,14 +5,12 @@ import {connect} from 'react-redux';
 import {Navbar, Button, Nav} from 'react-bootstrap'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import UserSideBar from '../components/SideBar'
+import UserSideBar from '../components/products/SideBar'
 import axios from 'axios'
-// import {SearchProduct} from '../components/SearchProduct'
-// import {getProfile} from '../publics/actions/users'
-import Products from '../components/Products'
-// axios.defaults.baseURL = 'http://localhost:8080';
-import DetailProduct from '../components/DetailProduct'
-import EditProduct from '../components/EditProduct'
+import Products from '../components/products/Products'
+import GetCategories from '../components/categories/GetCategories'
+import DetailProduct from '../components/products/DetailProduct'
+import EditProduct from '../components/products/EditProduct'
 class Home extends React.Component{
   constructor(props){
     super(props)
@@ -22,7 +20,7 @@ class Home extends React.Component{
       userData:undefined
     }
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
-    
+
   }
   onSetSidebarOpen = (open) => {
     this.setState({
@@ -36,7 +34,7 @@ class Home extends React.Component{
 
     render(){
         return(
-          <div>
+          <React.Fragment>
           <Sidebar
             children={''}
             sidebar={
@@ -44,9 +42,9 @@ class Home extends React.Component{
                 history={this.props.history}
               />}
             open={this.state.sidebarOpen}
-            onSetOpen={this.onSetSidebarOpen} 
+            onSetOpen={this.onSetSidebarOpen}
             styles={{ sidebar: { background: 'white', zIndex: '20', width: '20%', position: 'fixed' } }} >
-            <div>
+
             <Navbar expand="lg" style={{backgroundColor  : 'hsla(218, 100%, 50%, 0.8)'}}>
               <Nav>
               <Button  onClick={() => this.onSetSidebarOpen(true)}>
@@ -55,17 +53,19 @@ class Home extends React.Component{
               <Navbar.Brand style={{color:'white'}} onClick={()=>this.props.history.push("/")}>
                 Inventory App
               </Navbar.Brand>
+              <Nav.Link onClick={()=>this.props.history.push('/home/categories')}><b  className='colorWhite'>Categories</b></Nav.Link>
               </Nav>
             </Navbar>
-            </div>
-            </Sidebar>
             <br/>
-            <div>
+            <React.Fragment>
             <Route path={'/home'} exact render= {(props)=>{ return <Products {...props}/>}}/>
+            <Route path={'/home/categories'} exact render= {(props)=>{ return <GetCategories {...props}/>}}/>
             <Route path={'/home/products/:id'} exact render={(props) => {return <DetailProduct {...props} /> }} />
             <Route exact path={'/home/products/edit/:id'} render= {(props)=>{ return <EditProduct {...props}/>}} />
-            </div>
-          </div>
+            </React.Fragment>
+            </Sidebar>
+
+          </React.Fragment>
         )
     }
 }
