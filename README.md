@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align='center'>Inventory App with React JS + REDUX</h1>
+<p align='center'>
+  <a href='https://reactjs.org/'>
+  <img width="500" src='https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/116128830/original/fb01bf1bbfa56d57e03568f0f8f33e241c67069d/write-reactjs-with-redux-state-management-components.jpg' />
+  </a>
+</p>
 
-## Available Scripts
+Inventory app is an application about managing a products, Here we can create, edit, delete and search a product
 
-In the project directory, you can run:
+## Table of contens
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Demo Project](#demo-project)
 
-### `npm start`
+## Requirements
+1. Node/NPM
+2. React Js
+3. <a href="https://github.com/magung/inventory-app-js-backend">inventory-app-js-backend</a> for the API / backend side.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+### Clone
+Frontend
+```
+$ git clone https://github.com/magung/inventory-app-with-react-js.git
+```
+Backend
+```
+$ git clone https://github.com/magung/inventory-app-js-backend.git
+```
+### Install dependencies
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+To install dependencies enter project folder and run following command:
 
-### `npm test`
+`npm install`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running the app
 
-### `npm run build`
+`npm start` / `react-scripts-start`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Demo Project
+### Register
+![Screenshot from 2019-09-21 22-08-04](https://user-images.githubusercontent.com/50833200/65375178-b0d19b80-dcbc-11e9-81bf-4698edb5f88f.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Login
+![Screenshot from 2019-09-21 22-07-59](https://user-images.githubusercontent.com/50833200/65375184-bdee8a80-dcbc-11e9-93ba-9ffeca302131.png)
 
-### `npm run eject`
+### Home
+![Screenshot from 2019-09-21 22-07-39](https://user-images.githubusercontent.com/50833200/65375202-03ab5300-dcbd-11e9-852e-2212d16b63e2.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Search Product
+![Screenshot from 2019-09-21 22-20-26](https://user-images.githubusercontent.com/50833200/65375301-0c505900-dcbe-11e9-8bba-b3a9c408a2c8.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Detail Product
+![Screenshot from 2019-09-21 22-07-29](https://user-images.githubusercontent.com/50833200/65375223-3a816900-dcbd-11e9-9504-c319e0f10792.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Add Product
+![Screenshot from 2019-09-21 22-07-48](https://user-images.githubusercontent.com/50833200/65375234-4c630c00-dcbd-11e9-8388-c2db7736546b.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Edit Product
+![Screenshot from 2019-09-21 22-16-30](https://user-images.githubusercontent.com/50833200/65375257-7e746e00-dcbd-11e9-9023-9232b825f969.png)
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Get Category
+![Screenshot from 2019-09-21 22-09-22](https://user-images.githubusercontent.com/50833200/65375285-dca15100-dcbd-11e9-8d8d-6ce467fb081d.png)
 
-### Analyzing the Bundle Size
+### Add Category
+![Screenshot from 2019-09-21 22-07-53](https://user-images.githubusercontent.com/50833200/65375242-5dac1880-dcbd-11e9-8173-73ba3455e09d.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
